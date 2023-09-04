@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+  body{
+    background-color: #edfbff;
+  }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(7, 100px);
+      grid-template-rows: repeat(4, 100px);
+      gap: 5px;
+      justify-content: center;
+
+    }
+
+    .grid div {
+      background-color: white;
+      border: 2px solid black;
+      cursor: pointer;
+      box-sizing: initial;
+      border-radius: 10%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+       cursor: url(rainbowpntbrsh.cur), auto;
+
+    }
+
+    .color-button {
+      width: 80px;
+      height: 80px;
+      margin-right: 5px;
+      box-shadow: 0cm;
+      margin-left: 5px;
+      margin-top: 5px;
+      margin-bottom: 5px;
+      border-radius: 30%;
+      cursor: url(rainbowpntbrsh.cur), auto;
+
+
+    }
+
+    #reset-button {
+      width: 730px;
+      height: 80px;
+      margin-top: 10px;
+      border-radius: 2%;
+
+    }
+
+  </style>
+</head>
+<body>
+  <center>
+  <div class="color-buttons">
+    <button class="color-button" style="background-color: #1D5B79;"></button>
+    <button class="color-button" style="background-color: #468B97;"></button>
+    <button class="color-button" style="background-color: #9BE8D8;"></button>
+    <button class="color-button" style="background-color: #E2F6CA;"></button> <br>
+    <button class="color-button" style="background-color: #643843;"></button>
+    <button class="color-button" style="background-color: #99627A;"></button>
+    <button class="color-button" style="background-color: #C88EA7;"></button>
+    <button class="color-button" style="background-color: #E7CBCB;"></button>
+  </div>
+
+  <div class="grid">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+
+
+
+  </div>
+  <button id="reset-button" class="color-button">Reset</button>
+</center>
+  <script>
+    const colorButtons = document.querySelectorAll('.color-button');
+    const gridDivs = document.querySelectorAll('.grid div');
+    let selectedColor = '';
+
+    function fillDivWithColor() {
+      this.style.backgroundColor = selectedColor;
+    }
+
+    colorButtons.forEach((button, index) => {
+      button.addEventListener('click', function() {
+        selectedColor = this.style.backgroundColor;
+      });
+    });
+
+    const resetButton = document.getElementById('reset-button');
+    resetButton.addEventListener('click', () => {
+      gridDivs.forEach(div => {
+        div.style.backgroundColor = 'white';
+      });
+    });
+
+    gridDivs.forEach(div => {
+      div.addEventListener('click', fillDivWithColor);
+    });
+  </script>
+</body>
+</html>
